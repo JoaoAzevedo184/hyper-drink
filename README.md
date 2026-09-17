@@ -33,9 +33,10 @@ Os produtos são **dados mock** de demonstração. Cada item tem `liquid`
 src/
   components/
     Header.tsx            cabeçalho compacto + menu mobile em tela cheia
-    Hero.tsx              hero com o copo e os CTAs
-    DrinkCupAnimation.tsx animação do copo enchendo (SVG + clipPath + GSAP)
+    Hero.tsx              hero: tipografia gigante + copo + CTAs
+    HeroCup.tsx           foto do copo revelada por máscara em onda (GSAP)
     About.tsx             "Conheça a Hype" + composição com copos
+    Benefits.tsx          "Conheça os benefícios" (bebida funcional)
     Catalog.tsx           catálogo, filtros e transição entre categorias
     ProductCard.tsx       card com tilt no hover
     ProductModal.tsx      bottom sheet (mobile) / painel (desktop)
@@ -53,11 +54,25 @@ src/
   lib/                    montagem da URL do WhatsApp e formatação de preço
 ```
 
+## Fotos
+
+| Arquivo | Onde aparece | Como trocar |
+| --- | --- | --- |
+| `src/assets/cup.webp` | copo da Hero | PNG/WebP **com fundo transparente**, copo centralizado, proporção ~0,7:1. Ao trocar, ajuste `viewBox`, `width` e `height` no `HeroCup.tsx` para as dimensões novas |
+| `src/assets/post-hype.webp` | primeiro card do Instagram | qualquer imagem quadrada |
+
+O recorte atual foi feito por luminância a partir da foto de estúdio (fundo
+preto), preservando o selo e deixando a base do copo dissolver no escuro — por
+isso a Hero precisa de fundo escuro atrás do copo.
+
+A foto original chegou comprimida (386 px de largura). Funciona no tamanho em
+que é exibida, mas se o cliente tiver o arquivo original em alta, vale trocar.
+
 ## Notas
 
 - Nenhuma imagem externa: copos, selo da marca e cartaz são SVG/CSS, então
   o site carrega rápido e fica nítido em qualquer tela.
 - `prefers-reduced-motion` é respeitado: as animações caem para o estado final.
-- O bundle fica em ~505 kB (163 kB gzip), quase tudo React + Framer Motion +
+- O bundle fica em ~652 kB (277 kB gzip, já com a foto embutida), quase tudo React + Framer Motion +
   GSAP. Se precisar reduzir, o caminho é carregar o GSAP só na Hero via
   `import()` dinâmico.

@@ -2,16 +2,23 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Heart, Play } from 'lucide-react'
 import { InstagramGlyph } from './ui/Glyphs'
 import { site } from '../data/site'
+import postPhoto from '../assets/post-hype.webp'
 import { DrinkGlass } from './ui/DrinkGlass'
 import { Reveal } from './ui/Reveal'
 import { Button } from './ui/Button'
 
 /** 📸 Posts de demonstração — trocar por conteúdo real do perfil. */
-const posts = [
-  { caption: 'Sextou com Hype 💚', likes: 218, reel: false, colors: ['#6BE98F', '#046B31'] as [string, string] },
-  { caption: 'Novo sabor na casa', likes: 342, reel: true, colors: ['#FFD166', '#F58E1F'] as [string, string] },
-  { caption: 'Gelado do jeito certo', likes: 176, reel: false, colors: ['#7FE3FF', '#1E7FE0'] as [string, string] },
-  { caption: 'Seu momento Hype', likes: 405, reel: true, colors: ['#FF9BB3', '#E33A5E'] as [string, string] },
+const posts: {
+  caption: string
+  likes: number
+  reel: boolean
+  colors: [string, string]
+  photo?: string
+}[] = [
+  { caption: 'Montado na hora, no copo Hype', likes: 218, reel: false, colors: ['#C79BFF', '#4E1799'], photo: postPhoto },
+  { caption: 'Novo sabor na casa', likes: 342, reel: true, colors: ['#FFC46B', '#F2701F'] },
+  { caption: 'Gelado do jeito certo', likes: 176, reel: false, colors: ['#7FE3FF', '#1566D8'] },
+  { caption: 'Seu momento Hype', likes: 405, reel: true, colors: ['#FF5C7A', '#A8123C'] },
 ]
 
 export function InstagramSection() {
@@ -55,10 +62,19 @@ export function InstagramSection() {
                     background: `radial-gradient(120% 80% at 50% 10%, ${post.colors[0]}44, transparent 60%), linear-gradient(160deg, #0B120E, #050806)`,
                   }}
                 />
-                <DrinkGlass
-                  colors={post.colors}
-                  className="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 group-hover:scale-110"
-                />
+                {post.photo ? (
+                  <img
+                    src={post.photo}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <DrinkGlass
+                    colors={post.colors}
+                    className="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-void via-void/70 to-transparent p-4 pt-10">
                   <p className="text-sm font-medium text-foam">{post.caption}</p>
                   <p className="mt-1 flex items-center gap-1.5 text-xs text-foam/50">

@@ -49,7 +49,7 @@ export function Catalog() {
               Escolha seu <span className="text-hype-300">Hype</span>
             </>
           }
-          description="Sabores servidos na hora, no copo Hype. Toque em um deles para montar seu pedido."
+          description="Bebida funcional montada na hora, no copo Hype. Toque em um sabor para fazer o pedido."
         />
 
         {/* filtros — role para o lado no celular */}
@@ -92,7 +92,7 @@ export function Catalog() {
         </div>
 
         <p className="mt-8 text-center text-xs text-foam/30">
-          Sabores e preços são exemplos de demonstração para este protótipo.
+          Protótipo: confirme sabores e preços com a loja antes de publicar.
         </p>
       </div>
 

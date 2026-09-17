@@ -73,11 +73,12 @@ export function ProductModal({ product, onClose }: Props) {
                 <h3 className="text-2xl font-black leading-tight text-foam">{product.name}</h3>
                 <p className="mt-1 text-sm text-foam/55">{product.short}</p>
                 <p className="mt-3 font-display text-2xl font-black text-hype-300">{brl(product.price)}</p>
+                <p className="text-xs text-foam/40">Copo de {product.size}</p>
               </div>
             </div>
 
             <div className="mt-6">
-              <h4 className="text-xs font-semibold tracking-wide text-foam/40">Ingredientes</h4>
+              <h4 className="text-xs font-semibold tracking-wide text-foam/40">Como é montado</h4>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {product.ingredients.map((item) => (
                   <li key={item} className="glass rounded-full px-3.5 py-1.5 text-sm text-foam/80">

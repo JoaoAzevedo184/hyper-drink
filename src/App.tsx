@@ -3,6 +3,7 @@ import { Preloader } from './components/Preloader'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
+import { Benefits } from './components/Benefits'
 import { Catalog } from './components/Catalog'
 import { Location } from './components/Location'
 import { InstagramSection } from './components/InstagramSection'
@@ -28,6 +29,7 @@ export default function App() {
       <main>
         <Hero ready={!loading} />
         <About />
+        <Benefits />
         <Catalog />
         <Location />
         <InstagramSection />

@@ -1,129 +1,117 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
-import { MapPin, ChevronDown } from 'lucide-react'
-import { DrinkCupAnimation } from './DrinkCupAnimation'
+import { MapPin } from 'lucide-react'
+import { HeroCup } from './HeroCup'
 import { Bubbles } from './ui/Bubbles'
 import { Button } from './ui/Button'
-import { Bolt } from './ui/HypeLogo'
+import { HypeLogo } from './ui/HypeLogo'
 import { site } from '../data/site'
 import { scrollToSection } from '../hooks/useSmoothScroll'
 import { whatsappUrl } from '../lib/whatsapp'
+
+const word = 'font-display font-extrabold uppercase leading-[0.86] tracking-[-0.03em] text-foam'
 
 export function Hero({ ready }: { ready: boolean }) {
   const reduced = useReducedMotion()
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const cupY = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 90])
-    const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0.2])
+  const cupY = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 140])
+  const cupScale = useTransform(scrollYProgress, [0, 1], [1, reduced ? 1 : 1.12])
+  const leftX = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -90])
+  const rightX = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 90])
 
   const enter = (delay: number) => ({
-    initial: reduced ? false : { opacity: 0, y: 24 },
+    initial: reduced ? false : { opacity: 0, y: 30 },
     animate: ready ? { opacity: 1, y: 0 } : undefined,
-    transition: { delay, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { delay, duration: 0.9, ease: [0.22, 1, 0.36, 1] as const },
   })
 
   return (
-    <section id="top" ref={ref} className="relative isolate grain overflow-hidden pb-14 pt-24 sm:pb-20 sm:pt-28 lg:pb-24 lg:pt-32">
-      {/* atmosfera: manchas de líquido e luz */}
+    <section id="top" ref={ref} className="relative isolate overflow-hidden">
+      {/* atmosfera */}
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
-        <div className="absolute -left-40 top-0 h-[520px] w-[520px] rounded-full bg-hype/25 blur-[130px]" />
-        <div className="absolute -right-32 top-32 h-[460px] w-[460px] rounded-full bg-hype-400/20 blur-[120px]" />
-        <div className="absolute bottom-0 left-1/2 h-[320px] w-[760px] -translate-x-1/2 rounded-[50%] bg-hype-900/60 blur-[100px]" />
-        <svg className="absolute inset-0 h-full w-full opacity-[0.10]" aria-hidden>
-          <defs>
-            <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
-              <path d="M56 0H0v56" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+        <div className="absolute left-1/2 top-[38%] h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-hype/20 blur-[140px]" />
+        <div className="absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-hype-900/70 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 h-[380px] w-[520px] rounded-full bg-hype-700/25 blur-[130px]" />
       </div>
-      <Bubbles count={12} opacity={0.35} />
+      <Bubbles count={10} opacity={0.3} />
 
-      <div className="mx-auto flex max-w-6xl flex-col px-5 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:grid-rows-[auto_auto] lg:items-center lg:gap-x-6">
-        {/* bloco superior */}
-        <div className="relative z-10 text-center lg:col-start-1 lg:row-start-1 lg:text-left">
-          <motion.div
-            {...enter(0.1)}
-            className="glass-green mx-auto inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold tracking-wide text-hype-300 lg:mx-0"
-          >
-            <MapPin className="h-3.5 w-3.5" />
-            {site.place}
-          </motion.div>
+      {/* moldura de cantos */}
+      <div className="pointer-events-none absolute inset-4 z-20 sm:inset-6" aria-hidden>
+        {[
+          'left-0 top-0 border-l border-t',
+          'right-0 top-0 border-r border-t',
+          'left-0 bottom-0 border-b border-l',
+          'right-0 bottom-0 border-b border-r',
+        ].map((pos) => (
+          <span key={pos} className={`absolute h-8 w-8 border-foam/20 ${pos}`} />
+        ))}
+      </div>
 
-          <motion.div {...enter(0.18)} className="mt-5 flex items-center justify-center gap-2 lg:justify-start">
-            <span className="font-display text-xs font-black tracking-[0.35em] text-foam/70 sm:text-sm">HYPE</span>
-            <Bolt className="h-3.5 w-3.5 text-[#FFC629]" />
-            <span className="font-display text-xs font-black tracking-[0.35em] text-foam/70 sm:text-sm">DRINK</span>
-          </motion.div>
-
-          <motion.h1
-            {...enter(0.26)}
-            className="mt-3 text-[clamp(2.3rem,8.4vw,5.2rem)] font-black leading-[0.94] text-foam text-glow"
-          >
+      <div className="relative mx-auto flex min-h-[92svh] max-w-7xl flex-col justify-between px-6 pb-8 pt-24 sm:px-10 sm:pt-28">
+        {/* linha superior */}
+        <div className="relative z-0 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          <motion.h1 {...enter(0.15)} style={{ x: leftX }} className={`${word} text-[clamp(2.1rem,9vw,7rem)]`}>
             Seu momento.
-            <br />
-            Seu sabor.
-            <br />
-            <span className="text-hype-300">Seu Hype.</span>
           </motion.h1>
+          <motion.span
+            {...enter(0.25)}
+            style={{ x: rightX }}
+            className={`${word} self-end text-right text-[clamp(1.3rem,4.6vw,3.4rem)] text-foam/45 sm:mt-3 sm:self-auto`}
+          >
+            Seu
+            <br />
+            sabor.
+          </motion.span>
         </div>
 
-        {/* o copo — o momento principal da página */}
+        {/* o copo */}
         <motion.div
-          style={{ y: cupY }}
-          className="relative -mt-2 w-full lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-mt-0"
+          style={{ y: cupY, scale: cupScale }}
+          className="pointer-events-none absolute inset-x-0 top-[13%] z-30 flex justify-center sm:top-[14%]"
         >
-          <span
-            className="pointer-events-none absolute left-1/2 top-[14%] -z-10 -translate-x-1/2 font-display text-[30vw] font-black leading-none text-white/[0.05] lg:text-[13vw]"
-            aria-hidden
-          >
-            HYPE
-          </span>
-          <DrinkCupAnimation start={ready} className="mx-auto w-[62%] max-w-[300px] sm:w-[46%] lg:w-[78%] lg:max-w-none" />
+          <HeroCup start={ready} className="w-[48%] max-w-[205px] sm:w-[40%] sm:max-w-[320px] lg:w-[32%] lg:max-w-[400px]" />
         </motion.div>
 
-        {/* bloco inferior */}
-        <motion.div
-          style={{ opacity: fade }}
-          className="relative z-10 -mt-4 text-center lg:col-start-1 lg:row-start-2 lg:mt-8 lg:text-left"
+        {/* palavra que passa atrás do copo */}
+        <motion.p
+          {...enter(0.35)}
+          style={{ x: rightX }}
+          className={`${word} relative z-0 mt-auto text-right text-[clamp(2.6rem,13vw,10rem)] text-hype-300`}
         >
-          <motion.p
-            {...enter(0.34)}
-            className="mx-auto max-w-md text-base leading-relaxed text-foam/60 sm:text-lg lg:mx-0"
-          >
-            Conheça os sabores da Hype Drink no {site.place}.
-          </motion.p>
+          Seu Hype.
+        </motion.p>
 
-          <motion.div
-            {...enter(0.42)}
-            className="mt-7 flex flex-col items-stretch gap-3 sm:mx-auto sm:max-w-md sm:flex-row sm:justify-center lg:mx-0 lg:justify-start"
-          >
-            <Button size="lg" onClick={() => scrollToSection('#catalogo')}>
-              Ver sabores
-            </Button>
-            <Button
-              size="lg"
-              variant="glass"
-              href={whatsappUrl(`Oi, Hype Drink! Quero fazer um pedido no ${site.place}.`)}
-            >
-              Fazer pedido
-            </Button>
+        {/* rodapé da hero */}
+        <div className="relative z-20 mt-8 flex flex-col gap-6 sm:mt-10 sm:flex-row sm:items-end sm:justify-between">
+          <motion.div {...enter(0.45)} className="flex items-start gap-3">
+            <HypeLogo className="h-11 w-11 shrink-0" ring={false} />
+            <p className="max-w-[26ch] font-mono text-[11px] uppercase leading-[1.7] tracking-[0.12em] text-foam/55">
+              Bebida funcional montada
+              <br />
+              na hora — energia, foco
+              <br />
+              e disposição
+            </p>
           </motion.div>
-        </motion.div>
-      </div>
 
-      <motion.button
-        onClick={() => scrollToSection('#hype')}
-        initial={reduced ? false : { opacity: 0 }}
-        animate={ready ? { opacity: 1 } : undefined}
-        transition={{ delay: 2.6, duration: 0.8 }}
-        className="mx-auto mt-10 flex flex-col items-center gap-1.5 text-xs text-foam/40 transition-colors hover:text-foam/70"
-        aria-label="Descer para a próxima seção"
-      >
-        Deslize
-        <ChevronDown className="h-4 w-4 animate-bounce" />
-      </motion.button>
+          <motion.div {...enter(0.55)} className="flex flex-col gap-3 sm:items-end">
+            <span className="glass-green inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-hype-300">
+              <MapPin className="h-3.5 w-3.5" />
+              {site.place} • {site.store}
+            </span>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button onClick={() => scrollToSection('#catalogo')}>Ver sabores</Button>
+              <Button
+                variant="glass"
+                href={whatsappUrl(`Oi, Hype Drink! Quero fazer um pedido no ${site.place}.`)}
+              >
+                Fazer pedido
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

@@ -6,9 +6,9 @@ import { Reveal } from './ui/Reveal'
 import { site } from '../data/site'
 
 const features = [
-  { icon: Zap, title: 'Refrescante', text: 'Servido gelado, do jeito que o dia pede.' },
-  { icon: CupSoda, title: 'Diversos sabores', text: 'Dos clássicos aos cremosos, tem Hype pra todo mundo.' },
-  { icon: Sparkles, title: 'Combinações especiais', text: 'Misturas criadas pela casa, difíceis de achar por aí.' },
+  { icon: Zap, title: 'Energia na hora', text: 'Montado na hora e servido com muito gelo.' },
+  { icon: CupSoda, title: 'Diversos sabores', text: 'Do limão siciliano ao açaí, tem Hype pra todo mundo.' },
+  { icon: Sparkles, title: 'Bebida funcional', text: 'Chá, N-R-G, CR7 Drive e Liftoff no mesmo copo.' },
   { icon: MapPin, title: 'No Espaço Prime Plaza', text: `${site.store} — é só chegar e escolher.` },
 ]
 
@@ -32,13 +32,13 @@ export function About() {
             <div className="absolute inset-[18%] rounded-[58%_42%_60%_40%/40%_58%_42%_60%] border border-white/10" aria-hidden />
 
             <motion.div style={{ y: fast }} className="absolute left-[2%] top-[30%] w-[25%]">
-              <DrinkGlass colors={['#FFD166', '#F58E1F']} ice badge={false} className="w-full drop-shadow-2xl" />
+              <DrinkGlass colors={['#FF5C7A', '#A8123C']} ice badge={false} className="w-full drop-shadow-2xl" />
             </motion.div>
             <motion.div style={{ y: slow, x: '-50%' }} className="absolute left-1/2 top-[8%] w-[32%]">
               <DrinkGlass colors={['#6BE98F', '#046B31']} ice className="w-full drop-shadow-2xl" />
             </motion.div>
             <motion.div style={{ y: fast }} className="absolute right-[2%] top-[34%] w-[23%]">
-              <DrinkGlass colors={['#FF9BB3', '#E33A5E']} badge={false} className="w-full drop-shadow-2xl" />
+              <DrinkGlass colors={['#7FE3FF', '#1566D8']} badge={false} className="w-full drop-shadow-2xl" />
             </motion.div>
 
             {/* ingredientes / detalhes flutuantes */}
@@ -74,8 +74,9 @@ export function About() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-foam/60 sm:text-lg">
-              A Hype Drink nasceu pra acompanhar o intervalo, o encontro rápido, o fim de tarde.
-              Copo transparente, bebida na medida e aquele sabor que faz você voltar.
+              Não é refrigerante nem suco: é bebida funcional, montada na hora no copo
+              transparente. Energia, foco e hidratação num copo só — e com o sabor que
+              faz você voltar.
             </p>
           </Reveal>
 

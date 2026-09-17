@@ -72,8 +72,19 @@ export function ProductCard({ product, onSelect }: Props) {
       <h3 className="text-lg font-bold leading-tight text-foam">{product.name}</h3>
       <p className="mt-1 text-sm leading-relaxed text-foam/55">{product.short}</p>
 
+      <ul className="mt-3 flex flex-wrap gap-1.5">
+        {product.benefits.map((b) => (
+          <li key={b} className="rounded-full border border-hype-300/25 px-2.5 py-1 text-[11px] text-hype-300">
+            {b}
+          </li>
+        ))}
+      </ul>
+
       <div className="mt-5 flex items-center justify-between gap-3">
-        <span className="font-display text-xl font-black text-foam">{brl(product.price)}</span>
+        <div>
+          <span className="block font-display text-xl font-black text-foam">{brl(product.price)}</span>
+          <span className="text-xs text-foam/40">{product.size}</span>
+        </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => onSelect(product)}

@@ -44,9 +44,9 @@ export function Location() {
                     CONHEÇA OS BENEFÍCIOS
                   </p>
                   <div className="relative mt-4 flex items-end justify-center">
-                    <DrinkGlass colors={['#8C5A3C', '#2B140A']} className="-mr-5 w-[26%] opacity-90" badge={false} />
-                    <DrinkGlass colors={['#FFD166', '#F58E1F']} ice className="z-10 w-[34%]" />
-                    <DrinkGlass colors={['#FF9BB3', '#E33A5E']} className="-ml-5 w-[26%] opacity-90" badge={false} />
+                    <DrinkGlass colors={['#FF5C7A', '#A8123C']} className="-mr-5 w-[26%] opacity-90" badge={false} />
+                    <DrinkGlass colors={['#FFC46B', '#F2701F']} ice className="z-10 w-[34%]" />
+                    <DrinkGlass colors={['#7FE3FF', '#1566D8']} className="-ml-5 w-[26%] opacity-90" badge={false} />
                   </div>
                   <div className="mt-4 flex items-center justify-center gap-3">
                     <div className="grid h-12 w-12 grid-cols-4 grid-rows-4 gap-[2px] rounded-md bg-white p-1" aria-hidden>

@@ -20,6 +20,7 @@ export const site = {
 
 export const navLinks = [
   { label: 'A Hype', href: '#hype' },
+  { label: 'Benefícios', href: '#beneficios' },
   { label: 'Sabores', href: '#catalogo' },
   { label: 'Onde estamos', href: '#local' },
   { label: 'Instagram', href: '#instagram' },
