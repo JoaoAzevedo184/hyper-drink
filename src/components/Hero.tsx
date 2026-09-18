@@ -68,16 +68,16 @@ export function Hero({ ready }: { ready: boolean }) {
         {/* o copo */}
         <motion.div
           style={{ y: cupY, scale: cupScale }}
-          className="relative z-30 -mt-1 flex justify-center lg:pointer-events-none lg:absolute lg:inset-x-0 lg:top-[14%] lg:mt-0"
+          className="relative z-30 -mt-1 flex justify-center lg:pointer-events-none lg:absolute lg:inset-x-0 lg:top-[10%] lg:mt-0"
         >
-          <HeroCup start={ready} className="w-[48%] max-w-[196px] sm:w-[34%] sm:max-w-[260px] lg:w-[32%] lg:max-w-[400px]" />
+          <HeroCup start={ready} className="w-[48%] max-w-[196px] sm:w-[34%] sm:max-w-[260px] lg:w-[22%] lg:max-w-[280px]" />
         </motion.div>
 
         {/* palavra que passa atrás do copo */}
         <motion.p
           {...enter(0.35)}
           style={{ x: rightX }}
-          className={`${word} relative z-0 -mt-[7%] text-right text-[clamp(2.6rem,13vw,9rem)] text-hype-300 lg:mt-auto`}
+          className={`${word} relative z-0 -mt-[7%] text-right text-[clamp(2.6rem,13vw,9rem)] text-hype-300 lg:mt-auto lg:-mr-10`}
         >
           Seu Hype.
         </motion.p>

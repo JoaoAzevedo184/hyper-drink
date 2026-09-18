@@ -1,0 +1,222 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: HYPE
+      - generic [ref=e9]: DRINK
+    - paragraph [ref=e12]: Servindo seu Hype…
+  - banner [ref=e13]:
+    - generic [ref=e15]:
+      - link "HYPE DRINK" [ref=e16] [cursor=pointer]:
+        - /url: "#top"
+        - text: HYPEDRINK
+      - navigation [ref=e19]:
+        - button "A Hype" [ref=e20] [cursor=pointer]
+        - button "Benefícios" [ref=e21] [cursor=pointer]
+        - button "Sabores" [ref=e22] [cursor=pointer]
+        - button "Onde estamos" [ref=e23] [cursor=pointer]
+        - button "Instagram" [ref=e24] [cursor=pointer]
+      - link "Fazer pedido" [ref=e26] [cursor=pointer]:
+        - /url: https://wa.me/5581999999999?text=Oi%2C%20Hype%20Drink!%20Quero%20fazer%20um%20pedido.
+  - main [ref=e27]:
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - heading "Seu momento." [level=1] [ref=e31]
+        - generic [ref=e32]: Seusabor.
+      - generic:
+        - generic:
+          - generic:
+            - img "Copo da Hype Drink enchendo"
+      - paragraph [ref=e33]: Seu Hype.
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - img "Hype Drink" [ref=e36]:
+            - generic [ref=e40]: HYPE
+            - generic [ref=e41]:
+              - generic [ref=e42]: DR
+              - generic [ref=e45]: NK
+          - paragraph [ref=e46]: Bebida funcional montadana hora — energia, focoe disposição
+        - generic [ref=e47]:
+          - generic [ref=e48]: Espaço Prime Plaza • Loja 01
+          - generic [ref=e52]:
+            - button "Ver sabores" [ref=e53] [cursor=pointer]
+            - link "Fazer pedido" [ref=e55] [cursor=pointer]:
+              - /url: https://wa.me/5581999999999?text=Oi%2C%20Hype%20Drink!%20Quero%20fazer%20um%20pedido%20no%20Espa%C3%A7o%20Prime%20Plaza.
+    - generic [ref=e58]:
+      - generic [ref=e60]:
+        - img "Copo Hype Drink" [ref=e64]
+        - img "Copo Hype Drink" [ref=e81]:
+          - generic [ref=e97]:
+            - generic [ref=e100]: HYPE
+            - generic [ref=e101]: DR
+            - generic [ref=e104]: NK
+        - img "Copo Hype Drink" [ref=e106]
+        - generic [ref=e119]: 🍋 fruta fresca
+        - generic [ref=e120]: ⚡ energia
+        - generic [ref=e121]: 🧊 sempre gelado
+      - generic [ref=e122]:
+        - heading "Mais que uma bebida. É o seu momento Hype." [level=2] [ref=e124]: Mais que uma bebida.É o seu momento Hype.
+        - paragraph [ref=e126]: "Não é refrigerante nem suco: é bebida funcional, montada na hora no copo transparente. Energia, foco e hidratação num copo só — e com o sabor que faz você voltar."
+        - generic [ref=e127]:
+          - generic [ref=e129]:
+            - heading "Energia na hora" [level=3] [ref=e133]
+            - paragraph [ref=e134]: Montado na hora e servido com muito gelo.
+          - generic [ref=e136]:
+            - heading "Diversos sabores" [level=3] [ref=e142]
+            - paragraph [ref=e143]: Do limão siciliano ao açaí, tem Hype pra todo mundo.
+          - generic [ref=e145]:
+            - heading "Bebida funcional" [level=3] [ref=e150]
+            - paragraph [ref=e151]: Chá, N-R-G, CR7 Drive e Liftoff no mesmo copo.
+          - generic [ref=e153]:
+            - heading "No Espaço Prime Plaza" [level=3] [ref=e158]
+            - paragraph [ref=e159]: Loja 01 — é só chegar e escolher.
+    - generic [ref=e161]:
+      - generic [ref=e162]:
+        - heading "Conheça os benefícios" [level=2] [ref=e164]
+        - paragraph [ref=e166]: "Cada copo é uma bebida funcional montada na hora: chá, N-R-G, CR7 Drive e Liftoff. Energia que não derruba depois."
+      - generic [ref=e167]:
+        - generic [ref=e173]:
+          - heading "Energia e disposição" [level=3] [ref=e174]
+          - paragraph [ref=e175]: Ápice de energia sem a queda de depois.
+        - generic [ref=e187]:
+          - heading "Foco e concentração" [level=3] [ref=e188]
+          - paragraph [ref=e189]: Pra segurar o dia de trabalho ou de estudo.
+        - generic [ref=e195]:
+          - heading "Acelera o metabolismo" [level=3] [ref=e196]
+          - paragraph [ref=e197]: O chá termogênico faz a parte dele.
+        - generic [ref=e207]:
+          - heading "Mais rendimento" [level=3] [ref=e208]
+          - paragraph [ref=e209]: Energia e hidratação antes do treino.
+        - generic [ref=e216]:
+          - heading "Propriedade antioxidante" [level=3] [ref=e217]
+          - paragraph [ref=e218]: Chá e frutas trabalhando juntos.
+        - generic [ref=e226]:
+          - heading "Auxilia no controle de peso" [level=3] [ref=e227]
+          - paragraph [ref=e228]: Apenas 67 calorias por copo.
+    - generic [ref=e230]:
+      - generic [ref=e231]:
+        - heading "Escolha seu Hype" [level=2] [ref=e233]
+        - paragraph [ref=e235]: Bebida funcional montada na hora, no copo Hype. Toque em um sabor para fazer o pedido.
+      - generic [ref=e236]:
+        - button "Todos" [pressed] [ref=e237] [cursor=pointer]
+        - button "Energia" [ref=e239] [cursor=pointer]
+        - button "Foco" [ref=e241] [cursor=pointer]
+        - button "Metabolismo" [ref=e243] [cursor=pointer]
+        - button "Pré-treino" [ref=e245] [cursor=pointer]
+      - paragraph [ref=e266]: "Protótipo: confirme sabores e preços com a loja antes de publicar."
+    - generic [ref=e269]:
+      - generic [ref=e272]:
+        - generic [ref=e273]:
+          - paragraph [ref=e274]: CONHEÇA OS BENEFÍCIOS
+          - generic [ref=e275]:
+            - img "Copo Hype Drink" [ref=e276]
+            - img "Copo Hype Drink" [ref=e289]:
+              - generic [ref=e305]:
+                - generic [ref=e308]: HYPE
+                - generic [ref=e309]: DR
+                - generic [ref=e312]: NK
+            - img "Copo Hype Drink" [ref=e313]
+          - generic [ref=e326]: "@espacoprimeplaza"
+        - generic [ref=e345]:
+          - paragraph [ref=e346]: LOJA
+          - paragraph [ref=e347]: "01"
+      - generic [ref=e348]:
+        - heading "Encontre a Hype" [level=2] [ref=e350]
+        - paragraph [ref=e352]: Estamos no Espaço Prime Plaza. Venha conhecer nossos sabores.
+        - generic [ref=e354]:
+          - generic [ref=e355]:
+            - img "Hype Drink" [ref=e356]:
+              - generic [ref=e360]: HYPE
+              - generic [ref=e361]:
+                - generic [ref=e362]: DR
+                - generic [ref=e365]: NK
+            - generic [ref=e366]:
+              - paragraph [ref=e367]: HYPE DRINK
+              - paragraph [ref=e368]: Espaço Prime Plaza
+              - paragraph [ref=e369]: Loja 01
+          - paragraph [ref=e370]: Todos os dias, 10h às 22h
+          - generic [ref=e374]:
+            - link "Como chegar" [ref=e375] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=Espaço+Prime+Plaza
+            - link "WhatsApp" [ref=e378] [cursor=pointer]:
+              - /url: https://wa.me/5581999999999?text=Oi!%20Queria%20saber%20onde%20voc%C3%AAs%20ficam%20no%20Espa%C3%A7o%20Prime%20Plaza.
+            - link "Instagram" [ref=e381] [cursor=pointer]:
+              - /url: https://instagram.com/espacoprimeplaza
+    - generic [ref=e387]:
+      - generic [ref=e388]:
+        - generic [ref=e389]:
+          - heading "Entre no Hype" [level=2] [ref=e391]
+          - paragraph [ref=e393]: "@espacoprimeplaza"
+        - link "Seguir no Instagram" [ref=e395] [cursor=pointer]:
+          - /url: https://instagram.com/espacoprimeplaza
+      - generic [ref=e401]:
+        - link [ref=e403] [cursor=pointer]:
+          - /url: https://instagram.com/espacoprimeplaza
+          - generic [ref=e405]:
+            - paragraph [ref=e406]: Montado na hora, no copo Hype
+            - paragraph [ref=e407]: "218"
+        - link [ref=e411] [cursor=pointer]:
+          - /url: https://instagram.com/espacoprimeplaza
+          - img "Copo Hype Drink" [ref=e413]:
+            - generic [ref=e426]:
+              - generic [ref=e429]: HYPE
+              - generic [ref=e430]: DR
+              - generic [ref=e433]: NK
+          - generic [ref=e434]:
+            - paragraph [ref=e435]: Novo sabor na casa
+            - paragraph [ref=e436]: "342"
+        - link [ref=e443] [cursor=pointer]:
+          - /url: https://instagram.com/espacoprimeplaza
+          - img "Copo Hype Drink" [ref=e445]:
+            - generic [ref=e458]:
+              - generic [ref=e461]: HYPE
+              - generic [ref=e462]: DR
+              - generic [ref=e465]: NK
+          - generic [ref=e466]:
+            - paragraph [ref=e467]: Gelado do jeito certo
+            - paragraph [ref=e468]: "176"
+        - link [ref=e472] [cursor=pointer]:
+          - /url: https://instagram.com/espacoprimeplaza
+          - img "Copo Hype Drink" [ref=e474]:
+            - generic [ref=e487]:
+              - generic [ref=e490]: HYPE
+              - generic [ref=e491]: DR
+              - generic [ref=e494]: NK
+          - generic [ref=e495]:
+            - paragraph [ref=e496]: Seu momento Hype
+            - paragraph [ref=e497]: "405"
+    - generic [ref=e505]:
+      - heading "Aproxime. Escaneie. Escolha." [level=2] [ref=e507]
+      - generic [ref=e508]:
+        - generic [ref=e510]:
+          - heading "Aproxime" [level=3] [ref=e518]
+          - paragraph [ref=e519]: Encoste o celular na tag NFC da mesa.
+        - generic [ref=e521]:
+          - heading "Escaneie" [level=3] [ref=e530]
+          - paragraph [ref=e531]: Ou aponte a câmera para o QR Code do balcão.
+        - generic [ref=e533]:
+          - heading "Escolha" [level=3] [ref=e539]
+          - paragraph [ref=e540]: O catálogo abre e o pedido vai direto pro WhatsApp.
+    - generic [ref=e544]:
+      - generic [ref=e545]:
+        - heading "Já escolheu seu Hype?" [level=2] [ref=e547]
+        - paragraph [ref=e549]: Faça seu pedido e aproveite.
+        - link "PEDIR AGORA" [ref=e551] [cursor=pointer]:
+          - /url: https://wa.me/5581999999999?text=Oi%2C%20Hype%20Drink!%20Quero%20pedir%20agora%20no%20Espa%C3%A7o%20Prime%20Plaza.
+      - img "Copo Hype Drink" [ref=e553]:
+        - generic [ref=e569]:
+          - generic [ref=e572]: HYPE
+          - generic [ref=e573]: DR
+          - generic [ref=e576]: NK
+  - contentinfo [ref=e577]:
+    - generic [ref=e578]:
+      - generic [ref=e579]:
+        - paragraph [ref=e580]: HYPEDRINK
+        - paragraph [ref=e583]: Espaço Prime Plaza • Loja 01
+      - navigation [ref=e584]:
+        - link "Instagram" [ref=e585] [cursor=pointer]:
+          - /url: https://instagram.com/espacoprimeplaza
+        - link "WhatsApp" [ref=e590] [cursor=pointer]:
+          - /url: https://wa.me/5581999999999?text=Oi%2C%20Hype%20Drink!
+        - link "Localização" [ref=e593] [cursor=pointer]:
+          - /url: https://www.google.com/maps/search/?api=1&query=Espaço+Prime+Plaza
+    - paragraph [ref=e597]: Protótipo demonstrativo
