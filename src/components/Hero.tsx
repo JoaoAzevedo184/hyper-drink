@@ -48,16 +48,16 @@ export function Hero({ ready }: { ready: boolean }) {
         ))}
       </div>
 
-      <div className="relative mx-auto flex min-h-[92svh] max-w-7xl flex-col justify-between px-6 pb-8 pt-24 sm:px-10 sm:pt-28">
+      <div className="relative mx-auto flex max-w-7xl flex-col px-6 pb-8 pt-[4.25rem] sm:px-10 sm:pt-28 lg:min-h-[92svh] lg:justify-between lg:pb-8">
         {/* linha superior */}
-        <div className="relative z-0 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-          <motion.h1 {...enter(0.15)} style={{ x: leftX }} className={`${word} text-[clamp(2.1rem,9vw,7rem)]`}>
+        <div className="relative z-0 flex flex-col gap-1 lg:flex-row lg:items-start lg:justify-between lg:gap-6">
+          <motion.h1 {...enter(0.15)} style={{ x: leftX }} className={`${word} text-[clamp(2.1rem,7.4vw,6rem)] lg:shrink-0 lg:whitespace-nowrap`}>
             Seu momento.
           </motion.h1>
           <motion.span
             {...enter(0.25)}
             style={{ x: rightX }}
-            className={`${word} self-end text-right text-[clamp(1.3rem,4.6vw,3.4rem)] text-foam/45 sm:mt-3 sm:self-auto`}
+            className={`${word} self-end text-right text-[clamp(1.3rem,4.6vw,3rem)] text-foam/45 lg:mt-3 lg:self-auto`}
           >
             Seu
             <br />
@@ -68,22 +68,22 @@ export function Hero({ ready }: { ready: boolean }) {
         {/* o copo */}
         <motion.div
           style={{ y: cupY, scale: cupScale }}
-          className="pointer-events-none absolute inset-x-0 top-[13%] z-30 flex justify-center sm:top-[14%]"
+          className="relative z-30 -mt-1 flex justify-center lg:pointer-events-none lg:absolute lg:inset-x-0 lg:top-[14%] lg:mt-0"
         >
-          <HeroCup start={ready} className="w-[48%] max-w-[205px] sm:w-[40%] sm:max-w-[320px] lg:w-[32%] lg:max-w-[400px]" />
+          <HeroCup start={ready} className="w-[48%] max-w-[196px] sm:w-[34%] sm:max-w-[260px] lg:w-[32%] lg:max-w-[400px]" />
         </motion.div>
 
         {/* palavra que passa atrás do copo */}
         <motion.p
           {...enter(0.35)}
           style={{ x: rightX }}
-          className={`${word} relative z-0 mt-auto text-right text-[clamp(2.6rem,13vw,10rem)] text-hype-300`}
+          className={`${word} relative z-0 -mt-[7%] text-right text-[clamp(2.6rem,13vw,9rem)] text-hype-300 lg:mt-auto`}
         >
           Seu Hype.
         </motion.p>
 
         {/* rodapé da hero */}
-        <div className="relative z-20 mt-8 flex flex-col gap-6 sm:mt-10 sm:flex-row sm:items-end sm:justify-between">
+        <div className="relative z-20 mt-6 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between lg:mt-10">
           <motion.div {...enter(0.45)} className="flex items-start gap-3">
             <HypeLogo className="h-11 w-11 shrink-0" ring={false} />
             <p className="max-w-[26ch] font-mono text-[11px] uppercase leading-[1.7] tracking-[0.12em] text-foam/55">
