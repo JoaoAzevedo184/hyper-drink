@@ -1,6 +1,5 @@
-import { useId, useLayoutEffect, useMemo, useRef } from 'react'
+import { useId, useEffect, useMemo, useRef } from 'react'
 import { useReducedMotion } from 'framer-motion'
-import gsap from 'gsap'
 import cupPhoto from '../assets/cup.webp'
 
 type Props = {
@@ -29,31 +28,43 @@ export function HeroCup({ start = true, className = '' }: Props) {
 
   const wave = useMemo(() => buildWave(14, 240, -480, 960, 1400), [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (reduced || !start) return
 
-    const ctx = gsap.context(() => {
-      gsap.set('.cup-fill', { y: 980 })
+    let revert: (() => void) | undefined
+    let cancelled = false
 
-      gsap.to('.wave-a', { x: -480, duration: 4.2, ease: 'none', repeat: -1 })
+    import('gsap').then(({ default: gsap }) => {
+      if (cancelled) return
 
-      const tl = gsap.timeline({ delay: 0.3 })
-      tl.to('.cup-fill', { y: 0, duration: 2.3, ease: 'power2.inOut' })
-        .to(
-          '.cup-wrap',
-          {
-            keyframes: [
-              { scaleY: 0.97, scaleX: 1.025, duration: 0.14, ease: 'power2.out' },
-              { scaleY: 1.015, scaleX: 0.99, duration: 0.18 },
-              { scaleY: 1, scaleX: 1, duration: 0.8, ease: 'elastic.out(1, 0.4)' },
-            ],
-            transformOrigin: '50% 92%',
-          },
-          '-=0.45',
-        )
-    }, scope)
+      const ctx = gsap.context(() => {
+        gsap.set('.cup-fill', { y: 980 })
 
-    return () => ctx.revert()
+        gsap.to('.wave-a', { x: -480, duration: 4.2, ease: 'none', repeat: -1 })
+
+        const tl = gsap.timeline({ delay: 0.3 })
+        tl.to('.cup-fill', { y: 0, duration: 2.3, ease: 'power2.inOut' })
+          .to(
+            '.cup-wrap',
+            {
+              keyframes: [
+                { scaleY: 0.97, scaleX: 1.025, duration: 0.14, ease: 'power2.out' },
+                { scaleY: 1.015, scaleX: 0.99, duration: 0.18 },
+                { scaleY: 1, scaleX: 1, duration: 0.8, ease: 'elastic.out(1, 0.4)' },
+              ],
+              transformOrigin: '50% 92%',
+            },
+            '-=0.45',
+          )
+      }, scope)
+
+      revert = () => ctx.revert()
+    })
+
+    return () => {
+      cancelled = true
+      revert?.()
+    }
   }, [reduced, start])
 
   return (
