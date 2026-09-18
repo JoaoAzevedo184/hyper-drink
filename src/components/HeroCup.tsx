@@ -1,6 +1,5 @@
-import { useId, useLayoutEffect, useMemo, useRef } from 'react'
+import { useEffect, useId, useMemo, useRef } from 'react'
 import { useReducedMotion } from 'framer-motion'
-import gsap from 'gsap'
 import cupPhoto from '../assets/cup.webp'
 
 type Props = {
@@ -29,17 +28,24 @@ export function HeroCup({ start = true, className = '' }: Props) {
 
   const wave = useMemo(() => buildWave(14, 240, -480, 960, 1400), [])
 
-  useLayoutEffect(() => {
+  // o GSAP entra sob demanda: sai do bundle inicial e só carrega quando a
+  // animação vai mesmo rodar
+  useEffect(() => {
     if (reduced || !start) return
 
-    const ctx = gsap.context(() => {
-      gsap.set('.cup-fill', { y: 980 })
+    let cancelled = false
+    let revert: (() => void) | undefined
 
-      gsap.to('.wave-a', { x: -480, duration: 4.2, ease: 'none', repeat: -1 })
+    import('gsap').then(({ default: gsap }) => {
+      if (cancelled) return
+      const ctx = gsap.context(() => {
+        gsap.set('.cup-fill', { y: 980 })
 
-      const tl = gsap.timeline({ delay: 0.3 })
-      tl.to('.cup-fill', { y: 0, duration: 2.3, ease: 'power2.inOut' })
-        .to(
+        gsap.to('.wave-a', { x: -480, duration: 4.2, ease: 'none', repeat: -1 })
+
+        const tl = gsap.timeline({ delay: 0.3 })
+        tl.to('.cup-fill', { y: 0, duration: 2.3, ease: 'power2.inOut' })
+          .to(
           '.cup-wrap',
           {
             keyframes: [
@@ -51,9 +57,14 @@ export function HeroCup({ start = true, className = '' }: Props) {
           },
           '-=0.45',
         )
-    }, scope)
+      }, scope)
+      revert = () => ctx.revert()
+    })
 
-    return () => ctx.revert()
+    return () => {
+      cancelled = true
+      revert?.()
+    }
   }, [reduced, start])
 
   return (
