@@ -1,5 +1,6 @@
-import { useId, useEffect, useMemo, useRef } from 'react'
+import { useId, useLayoutEffect, useMemo, useRef } from 'react'
 import { useReducedMotion } from 'framer-motion'
+import gsap from 'gsap'
 import cupPhoto from '../assets/cup.webp'
 
 type Props = {
@@ -28,43 +29,31 @@ export function HeroCup({ start = true, className = '' }: Props) {
 
   const wave = useMemo(() => buildWave(14, 240, -480, 960, 1400), [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (reduced || !start) return
 
-    let revert: (() => void) | undefined
-    let cancelled = false
+    const ctx = gsap.context(() => {
+      gsap.set('.cup-fill', { y: 980 })
 
-    import('gsap').then(({ default: gsap }) => {
-      if (cancelled) return
+      gsap.to('.wave-a', { x: -480, duration: 4.2, ease: 'none', repeat: -1 })
 
-      const ctx = gsap.context(() => {
-        gsap.set('.cup-fill', { y: 980 })
+      const tl = gsap.timeline({ delay: 0.3 })
+      tl.to('.cup-fill', { y: 0, duration: 2.3, ease: 'power2.inOut' })
+        .to(
+          '.cup-wrap',
+          {
+            keyframes: [
+              { scaleY: 0.97, scaleX: 1.025, duration: 0.14, ease: 'power2.out' },
+              { scaleY: 1.015, scaleX: 0.99, duration: 0.18 },
+              { scaleY: 1, scaleX: 1, duration: 0.8, ease: 'elastic.out(1, 0.4)' },
+            ],
+            transformOrigin: '50% 92%',
+          },
+          '-=0.45',
+        )
+    }, scope)
 
-        gsap.to('.wave-a', { x: -480, duration: 4.2, ease: 'none', repeat: -1 })
-
-        const tl = gsap.timeline({ delay: 0.3 })
-        tl.to('.cup-fill', { y: 0, duration: 2.3, ease: 'power2.inOut' })
-          .to(
-            '.cup-wrap',
-            {
-              keyframes: [
-                { scaleY: 0.97, scaleX: 1.025, duration: 0.14, ease: 'power2.out' },
-                { scaleY: 1.015, scaleX: 0.99, duration: 0.18 },
-                { scaleY: 1, scaleX: 1, duration: 0.8, ease: 'elastic.out(1, 0.4)' },
-              ],
-              transformOrigin: '50% 92%',
-            },
-            '-=0.45',
-          )
-      }, scope)
-
-      revert = () => ctx.revert()
-    })
-
-    return () => {
-      cancelled = true
-      revert?.()
-    }
+    return () => ctx.revert()
   }, [reduced, start])
 
   return (
@@ -76,7 +65,7 @@ export function HeroCup({ start = true, className = '' }: Props) {
       />
 
       <div className="cup-wrap relative">
-        <svg viewBox="0 0 584 852" className="w-full" role="img" aria-label="Copo da Hype Drink enchendo">
+        <svg viewBox="0 0 484 910" className="w-full" role="img" aria-label="Copo da Hype Drink enchendo">
           <defs>
             {/* máscara (e não clipPath: grupos dentro de clipPath são ignorados) */}
             <mask id={`fill-${uid}`}>
@@ -93,14 +82,14 @@ export function HeroCup({ start = true, className = '' }: Props) {
           {/* copo "vazio": a mesma foto, apagada */}
           <image
             href={cupPhoto}
-            width="584"
-            height="852"
+            width="484"
+            height="910"
             style={{ filter: 'brightness(0.32) saturate(0.25)' }}
           />
 
           {/* bebida: a foto em cor cheia, revelada pela onda */}
           <g mask={reduced ? undefined : `url(#fill-${uid})`}>
-            <image href={cupPhoto} width="584" height="852" />
+            <image href={cupPhoto} width="484" height="910" />
           </g>
 
         </svg>
